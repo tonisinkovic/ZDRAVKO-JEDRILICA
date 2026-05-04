@@ -1,0 +1,20 @@
+# Dependencies
+node_modules/
+
+# Vite
+.vite/
+dist/
+
+# Logs & OS
+*.log
+.DS_Store
+Thumbs.db
+
+# Env
+.env
+.env.*.local
+
+# Editor
+.idea/
+.vscode/*
+!.vscode/extensions.json
