@@ -12,6 +12,8 @@ const lightbox = document.getElementById('lightbox');
 const lightboxImage = document.querySelector('.lightbox-image');
 const lightboxClose = document.querySelector('.lightbox-close');
 const charterForm = document.getElementById('charterForm');
+const copyBookingBtn = document.querySelector('[data-copy-booking]');
+const bookingUrl = 'https://www.tripadvisor.com/Attraction_Review-g644074-d24175564-Reviews-Sailing_yacht_Lucica-Omis_Split_Dalmatia_County_Dalmatia.html';
 
 // ===== Navbar Scroll Effect =====
 window.addEventListener('scroll', () => {
@@ -212,10 +214,7 @@ document.addEventListener('keydown', (e) => {
 if (charterForm) {
     charterForm.addEventListener('submit', (e) => {
         e.preventDefault();
-        
-        const formData = new FormData(charterForm);
-        const data = Object.fromEntries(formData);
-        
+
         const submitBtn = charterForm.querySelector('button[type="submit"]');
         const originalText = submitBtn.textContent;
         submitBtn.textContent = 'Sending...';
@@ -227,6 +226,22 @@ if (charterForm) {
             submitBtn.textContent = originalText;
             submitBtn.disabled = false;
         }, 1500);
+    });
+}
+
+// ===== Copy Booking Link =====
+if (copyBookingBtn) {
+    copyBookingBtn.addEventListener('click', async () => {
+        const originalText = copyBookingBtn.textContent;
+        try {
+            await navigator.clipboard.writeText(bookingUrl);
+            copyBookingBtn.textContent = 'Link copied';
+        } catch (error) {
+            copyBookingBtn.textContent = 'Copy failed';
+        }
+        setTimeout(() => {
+            copyBookingBtn.textContent = originalText;
+        }, 1400);
     });
 }
 
