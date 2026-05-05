@@ -173,6 +173,10 @@ img {
     padding: 5px 0;
 }
 
+.nav-menu a.active-link {
+    color: #e7c47b;
+}
+
 .nav-menu a::after {
     content: '';
     position: absolute;
@@ -251,7 +255,7 @@ img {
     align-items: center;
     justify-content: center;
     position: relative;
-    background: url('file:///C:/Users/User/.cursor/projects/c-Users-User-Desktop-JEDRILICA-ZDRAVKO-RADI/assets/c__Users_User_AppData_Roaming_Cursor_User_workspaceStorage_1fa03f5013c59c01b5f8d846a799d871_images_jedrilica2-48f6cd2f-685b-470d-8849-e54c962e4b84.png') center/cover no-repeat;
+    background: url('/assets/images/jedrilica2.png') center/cover no-repeat;
 }
 
 .hero-overlay {
@@ -858,7 +862,7 @@ img {
 }
 
 .checklist li::before {
-    content: '\\f00c';
+    content: '\f00c';
     font-family: 'Font Awesome 6 Free';
     font-weight: 900;
     position: absolute;
@@ -1206,6 +1210,53 @@ img {
     border: 1px solid rgba(26, 58, 92, 0.08);
 }
 
+/* Better readability for laptop widths */
+@media (max-width: 1366px) and (min-width: 1025px) {
+    .nav-menu {
+        gap: 18px;
+    }
+
+    .nav-menu a {
+        font-size: 13px;
+        letter-spacing: 0.7px;
+    }
+
+    .vessel-hero {
+        grid-template-columns: 1fr 1fr;
+        gap: 28px;
+    }
+
+    .vessel-hero-media img {
+        height: 380px;
+    }
+
+    .vessel-meta {
+        gap: 8px;
+    }
+
+    .meta-chip {
+        font-size: 12px;
+        padding: 8px 11px;
+    }
+
+    .vessel-grid {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+
+    .vessel-card.wide {
+        grid-column: span 1;
+    }
+
+    .tour-cards {
+        grid-template-columns: 1fr;
+    }
+
+    .vessel-card {
+        padding: 26px;
+    }
+}
+
 .source {
     display: inline-flex;
     align-items: center;
@@ -1229,6 +1280,456 @@ img {
 
 .link:hover {
     color: var(--accent-color);
+}
+
+/* ===== Simplified Booking Section ===== */
+.booking-section {
+    padding: 80px 0;
+    background: linear-gradient(180deg, #f8fafc 0%, #ffffff 100%);
+}
+
+.booking-card {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    background: var(--white);
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(26, 58, 92, 0.12);
+    margin-bottom: 40px;
+}
+
+.booking-image {
+    position: relative;
+    min-height: 400px;
+}
+
+.booking-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.booking-badges {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    display: flex;
+    gap: 10px;
+}
+
+.b-badge {
+    padding: 8px 14px;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--primary-dark);
+    backdrop-filter: blur(10px);
+}
+
+.b-badge.gold {
+    background: var(--secondary-color);
+    color: white;
+}
+
+.b-badge i {
+    margin-right: 4px;
+}
+
+.booking-info {
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.booking-title {
+    font-size: 32px;
+    color: var(--primary-color);
+    margin-bottom: 8px;
+}
+
+.booking-subtitle {
+    color: var(--text-light);
+    font-size: 16px;
+    margin-bottom: 24px;
+}
+
+.booking-features {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.booking-features span {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    color: var(--text-dark);
+}
+
+.booking-features i {
+    color: #27ae60;
+    font-size: 16px;
+}
+
+.booking-price-box {
+    background: linear-gradient(135deg, rgba(201, 169, 98, 0.15) 0%, rgba(201, 169, 98, 0.05) 100%);
+    padding: 20px 24px;
+    border-radius: 16px;
+    margin-bottom: 24px;
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+}
+
+.price-label {
+    font-size: 14px;
+    color: var(--text-light);
+}
+
+.price-amount {
+    font-family: 'Playfair Display', serif;
+    font-size: 36px;
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+.price-note {
+    font-size: 14px;
+    color: var(--text-light);
+}
+
+.booking-cta {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+.cta-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 16px 28px;
+    border-radius: 12px;
+    font-size: 15px;
+    font-weight: 600;
+    text-transform: none;
+    transition: all 0.3s ease;
+}
+
+.cta-btn.tripadvisor {
+    background: var(--primary-color);
+    color: white;
+}
+
+.cta-btn.tripadvisor:hover {
+    background: var(--primary-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(26, 58, 92, 0.3);
+}
+
+.cta-btn.whatsapp {
+    background: #25D366;
+    color: white;
+}
+
+.cta-btn.whatsapp:hover {
+    background: #1fb855;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(37, 211, 102, 0.3);
+}
+
+.cta-btn i {
+    font-size: 18px;
+}
+
+.booking-urgency {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    color: var(--accent-color);
+    font-weight: 600;
+}
+
+.booking-urgency i {
+    color: #f39c12;
+}
+
+/* Tour Options */
+.tour-options {
+    background: var(--white);
+    border-radius: 24px;
+    padding: 40px;
+    box-shadow: 0 10px 40px rgba(26, 58, 92, 0.08);
+    margin-bottom: 40px;
+}
+
+.options-heading {
+    text-align: center;
+    font-size: 28px;
+    color: var(--primary-color);
+    margin-bottom: 32px;
+}
+
+.options-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+}
+
+.option-box {
+    background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+    border: 2px solid rgba(26, 58, 92, 0.08);
+    border-radius: 20px;
+    padding: 32px;
+    text-align: center;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.option-box:hover {
+    border-color: var(--secondary-color);
+    transform: translateY(-4px);
+    box-shadow: 0 15px 40px rgba(26, 58, 92, 0.12);
+}
+
+.option-box.featured {
+    border-color: var(--secondary-color);
+    background: linear-gradient(180deg, #fffdf8 0%, #fff9ed 100%);
+}
+
+.featured-tag {
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--secondary-color);
+    color: white;
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.option-icon {
+    width: 60px;
+    height: 60px;
+    margin: 0 auto 16px;
+    background: linear-gradient(135deg, rgba(26, 58, 92, 0.1) 0%, rgba(41, 128, 185, 0.1) 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.option-icon i {
+    font-size: 24px;
+    color: var(--primary-color);
+}
+
+.option-box h4 {
+    font-size: 22px;
+    color: var(--primary-color);
+    margin-bottom: 8px;
+}
+
+.option-duration {
+    font-size: 14px;
+    color: var(--secondary-color);
+    font-weight: 600;
+    margin-bottom: 12px !important;
+}
+
+.option-desc {
+    color: var(--text-light);
+    font-size: 14px;
+    margin-bottom: 20px !important;
+    line-height: 1.6;
+}
+
+.option-price {
+    font-family: 'Playfair Display', serif;
+    font-size: 32px;
+    color: var(--primary-color);
+    font-weight: 700;
+    margin-bottom: 16px;
+}
+
+.option-cancel {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-size: 13px;
+    color: #27ae60;
+    font-weight: 500;
+}
+
+.option-cancel i {
+    font-size: 14px;
+}
+
+/* Simple Review */
+.simple-review {
+    background: var(--white);
+    border-radius: 24px;
+    padding: 40px;
+    text-align: center;
+    box-shadow: 0 10px 40px rgba(26, 58, 92, 0.08);
+}
+
+.review-icon {
+    width: 50px;
+    height: 50px;
+    margin: 0 auto 20px;
+    background: rgba(201, 169, 98, 0.15);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.review-icon i {
+    font-size: 20px;
+    color: var(--secondary-color);
+}
+
+.review-quote {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    color: var(--primary-color);
+    font-style: italic;
+    line-height: 1.6;
+    max-width: 700px;
+    margin: 0 auto 24px;
+}
+
+.review-author {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+}
+
+.author-avatar {
+    width: 40px;
+    height: 40px;
+    background: var(--secondary-color);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+}
+
+.author-name {
+    font-weight: 600;
+    color: var(--primary-dark);
+}
+
+.author-stars {
+    color: var(--secondary-color);
+}
+
+.author-stars i {
+    font-size: 14px;
+}
+
+/* Booking Section Responsive */
+@media (max-width: 900px) {
+    .booking-card {
+        grid-template-columns: 1fr;
+    }
+
+    .booking-image {
+        min-height: 300px;
+    }
+
+    .booking-info {
+        padding: 30px;
+    }
+
+    .booking-title {
+        font-size: 26px;
+    }
+
+    .options-row {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .option-box.featured {
+        order: -1;
+    }
+
+    .review-quote {
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 600px) {
+    .booking-section {
+        padding: 50px 0;
+    }
+
+    .booking-card {
+        border-radius: 16px;
+        margin-bottom: 24px;
+    }
+
+    .booking-info {
+        padding: 24px;
+    }
+
+    .booking-title {
+        font-size: 22px;
+    }
+
+    .price-amount {
+        font-size: 28px;
+    }
+
+    .cta-btn {
+        padding: 14px 20px;
+        font-size: 14px;
+    }
+
+    .tour-options {
+        padding: 24px;
+        border-radius: 16px;
+    }
+
+    .options-heading {
+        font-size: 22px;
+        margin-bottom: 24px;
+    }
+
+    .option-box {
+        padding: 24px;
+    }
+
+    .option-price {
+        font-size: 26px;
+    }
+
+    .simple-review {
+        padding: 24px;
+        border-radius: 16px;
+    }
+
+    .review-quote {
+        font-size: 16px;
+    }
 }
 
 /* ===== Gallery Section ===== */
@@ -1756,7 +2257,12 @@ body {
 }
 
 .hero-overlay {
-    background: linear-gradient(135deg, rgba(10, 56, 95, 0.66) 0%, rgba(26, 103, 168, 0.5) 100%);
+    background-image:
+        linear-gradient(135deg, rgba(10, 56, 95, 0.62) 0%, rgba(26, 103, 168, 0.44) 100%),
+        url('/assets/images/jedrilica2b.png');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
 .hero-title {
@@ -1863,5 +2369,193 @@ body {
     .vessel-footnote {
         flex-direction: column;
         align-items: flex-start;
+    }
+}
+
+/* ===== Final UI Polish ===== */
+body {
+    color: #2a3d52;
+}
+
+.container {
+    max-width: 1140px;
+}
+
+.navbar {
+    padding: 14px 0;
+}
+
+.navbar.scrolled {
+    padding: 10px 0;
+}
+
+.nav-container {
+    min-height: 56px;
+}
+
+.logo {
+    font-size: clamp(24px, 3vw, 30px);
+    letter-spacing: 0.5px;
+}
+
+.nav-menu {
+    gap: 28px;
+}
+
+.hero-content {
+    max-width: 820px;
+}
+
+.hero-title {
+    margin-bottom: 18px;
+}
+
+.hero-subtitle {
+    font-size: clamp(16px, 2.2vw, 21px);
+    line-height: 1.65;
+    margin-bottom: 28px;
+}
+
+.section-header {
+    margin-bottom: 42px;
+}
+
+.section-title {
+    margin-bottom: 14px;
+}
+
+.about-text p,
+.contact-info > p,
+.review-text {
+    line-height: 1.75;
+}
+
+.vessel-card,
+.contact-form-container,
+.tour-card,
+.review,
+.price-box {
+    border: 1px solid rgba(16, 63, 102, 0.08);
+    box-shadow: 0 10px 24px rgba(13, 53, 87, 0.08);
+}
+
+.vessel-cta {
+    gap: 10px;
+}
+
+.vessel-cta .btn {
+    min-width: 220px;
+    text-align: center;
+}
+
+.gallery-grid {
+    gap: 14px;
+}
+
+.contact-wrapper {
+    gap: 44px;
+}
+
+.footer-content {
+    gap: 34px;
+}
+
+/* Laptop */
+@media (max-width: 1280px) {
+    .nav-menu {
+        gap: 20px;
+    }
+
+    .vessel-hero {
+        gap: 34px;
+    }
+}
+
+/* Tablet */
+@media (max-width: 1024px) {
+    .container {
+        padding: 0 18px;
+    }
+
+    .hero {
+        min-height: 88vh;
+    }
+
+    .hero-subtitle {
+        max-width: 680px;
+    }
+
+    .contact-wrapper {
+        gap: 28px;
+    }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .container {
+        padding: 0 14px;
+    }
+
+    .logo {
+        font-size: 24px;
+    }
+
+    .hero {
+        min-height: 80vh;
+    }
+
+    .hero-title {
+        font-size: clamp(32px, 10vw, 46px);
+    }
+
+    .hero-subtitle {
+        font-size: 16px;
+        line-height: 1.6;
+        margin-bottom: 20px;
+    }
+
+    .hero-buttons {
+        gap: 10px;
+    }
+
+    .btn {
+        padding: 12px 20px;
+        font-size: 13px;
+    }
+
+    .vessel-cta .btn {
+        min-width: 100%;
+    }
+
+    .about-content,
+    .contact-wrapper {
+        gap: 24px;
+    }
+
+    .section-title {
+        font-size: clamp(27px, 8vw, 34px);
+    }
+
+    .vessel-note,
+    .pill,
+    .meta-chip {
+        font-size: 12px;
+    }
+}
+
+/* Small phones */
+@media (max-width: 480px) {
+    .hero {
+        min-height: 74vh;
+    }
+
+    .vessel-card,
+    .contact-form-container {
+        padding: 18px;
+        border-radius: 14px;
+    }
+
+    .reviewer {
+        gap: 8px;
     }
 }

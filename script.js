@@ -12,8 +12,6 @@ const lightbox = document.getElementById('lightbox');
 const lightboxImage = document.querySelector('.lightbox-image');
 const lightboxClose = document.querySelector('.lightbox-close');
 const charterForm = document.getElementById('charterForm');
-const copyBookingBtn = document.querySelector('[data-copy-booking]');
-const bookingUrl = 'https://www.tripadvisor.com/Attraction_Review-g644074-d24175564-Reviews-Sailing_yacht_Lucica-Omis_Split_Dalmatia_County_Dalmatia.html';
 
 // ===== Navbar Scroll Effect =====
 window.addEventListener('scroll', () => {
@@ -71,111 +69,107 @@ document.querySelectorAll('.animate-fade-up, .animate-slide-left, .animate-slide
 });
 
 // ===== Carousel Functionality =====
-let currentSlide = 0;
 const cards = document.querySelectorAll('.offer-card');
-let cardsPerView = getCardsPerView();
-const totalSlides = Math.ceil(cards.length / cardsPerView);
+let carouselInterval = null;
 
-function getCardsPerView() {
-    if (window.innerWidth <= 768) return 1;
-    if (window.innerWidth <= 1024) return 2;
-    return 3;
-}
+if (carouselTrack && dotsContainer && cards.length > 0) {
+    let currentSlide = 0;
+    let cardsPerView = getCardsPerView();
+    const carouselContainer = document.querySelector('.carousel-container');
 
-function createDots() {
-    dotsContainer.innerHTML = '';
-    for (let i = 0; i < totalSlides; i++) {
-        const dot = document.createElement('div');
-        dot.classList.add('dot');
-        if (i === 0) dot.classList.add('active');
-        dot.addEventListener('click', () => goToSlide(i));
-        dotsContainer.appendChild(dot);
+    function getCardsPerView() {
+        if (window.innerWidth <= 768) return 1;
+        if (window.innerWidth <= 1024) return 2;
+        return 3;
     }
-}
 
-function updateDots() {
-    document.querySelectorAll('.dot').forEach((dot, index) => {
-        dot.classList.toggle('active', index === currentSlide);
-    });
-}
+    function getTotalSlides() {
+        return Math.ceil(cards.length / cardsPerView);
+    }
 
-function goToSlide(index) {
-    currentSlide = index;
-    const cardWidth = cards[0].offsetWidth + 30;
-    const offset = currentSlide * cardsPerView * cardWidth;
-    carouselTrack.style.transform = `translateX(-${offset}px)`;
-    updateDots();
-}
+    function createDots() {
+        dotsContainer.innerHTML = '';
+        for (let i = 0; i < getTotalSlides(); i++) {
+            const dot = document.createElement('div');
+            dot.classList.add('dot');
+            if (i === 0) dot.classList.add('active');
+            dot.addEventListener('click', () => goToSlide(i));
+            dotsContainer.appendChild(dot);
+        }
+    }
 
-function nextSlide() {
-    currentSlide = (currentSlide + 1) % totalSlides;
-    goToSlide(currentSlide);
-}
+    function updateDots() {
+        document.querySelectorAll('.dot').forEach((dot, index) => {
+            dot.classList.toggle('active', index === currentSlide);
+        });
+    }
 
-function prevSlide() {
-    currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
-    goToSlide(currentSlide);
-}
+    function goToSlide(index) {
+        currentSlide = index;
+        const cardWidth = cards[0].offsetWidth + 30;
+        const offset = currentSlide * cardsPerView * cardWidth;
+        carouselTrack.style.transform = `translateX(-${offset}px)`;
+        updateDots();
+    }
 
-if (nextBtn && prevBtn) {
-    nextBtn.addEventListener('click', nextSlide);
-    prevBtn.addEventListener('click', prevSlide);
-}
+    function nextSlide() {
+        currentSlide = (currentSlide + 1) % getTotalSlides();
+        goToSlide(currentSlide);
+    }
 
-createDots();
+    function prevSlide() {
+        currentSlide = (currentSlide - 1 + getTotalSlides()) % getTotalSlides();
+        goToSlide(currentSlide);
+    }
 
-// Auto-play carousel
-let carouselInterval = setInterval(nextSlide, 5000);
+    if (nextBtn && prevBtn) {
+        nextBtn.addEventListener('click', nextSlide);
+        prevBtn.addEventListener('click', prevSlide);
+    }
 
-const carouselContainer = document.querySelector('.carousel-container');
-if (carouselContainer) {
-    carouselContainer.addEventListener('mouseenter', () => {
-        clearInterval(carouselInterval);
-    });
-    
-    carouselContainer.addEventListener('mouseleave', () => {
-        carouselInterval = setInterval(nextSlide, 5000);
-    });
-}
+    createDots();
+    carouselInterval = setInterval(nextSlide, 5000);
 
-// Touch support for carousel
-let touchStartX = 0;
-let touchEndX = 0;
+    if (carouselContainer) {
+        carouselContainer.addEventListener('mouseenter', () => {
+            clearInterval(carouselInterval);
+        });
 
-if (carouselTrack) {
+        carouselContainer.addEventListener('mouseleave', () => {
+            carouselInterval = setInterval(nextSlide, 5000);
+        });
+    }
+
+    let touchStartX = 0;
+    let touchEndX = 0;
+
     carouselTrack.addEventListener('touchstart', (e) => {
         touchStartX = e.changedTouches[0].screenX;
     });
-    
+
     carouselTrack.addEventListener('touchend', (e) => {
         touchEndX = e.changedTouches[0].screenX;
-        handleSwipe();
+        const swipeThreshold = 50;
+        const diff = touchStartX - touchEndX;
+        if (Math.abs(diff) > swipeThreshold) {
+            if (diff > 0) {
+                nextSlide();
+            } else {
+                prevSlide();
+            }
+        }
+    });
+
+    window.addEventListener('resize', () => {
+        const newCardsPerView = getCardsPerView();
+        if (newCardsPerView !== cardsPerView) {
+            cardsPerView = newCardsPerView;
+            currentSlide = 0;
+            goToSlide(0);
+            createDots();
+        }
     });
 }
-
-function handleSwipe() {
-    const swipeThreshold = 50;
-    const diff = touchStartX - touchEndX;
-    
-    if (Math.abs(diff) > swipeThreshold) {
-        if (diff > 0) {
-            nextSlide();
-        } else {
-            prevSlide();
-        }
-    }
-}
-
-// Update carousel on resize
-window.addEventListener('resize', () => {
-    const newCardsPerView = getCardsPerView();
-    if (newCardsPerView !== cardsPerView) {
-        cardsPerView = newCardsPerView;
-        currentSlide = 0;
-        goToSlide(0);
-        createDots();
-    }
-});
 
 // ===== Gallery Lightbox =====
 galleryItems.forEach(item => {
@@ -226,22 +220,6 @@ if (charterForm) {
             submitBtn.textContent = originalText;
             submitBtn.disabled = false;
         }, 1500);
-    });
-}
-
-// ===== Copy Booking Link =====
-if (copyBookingBtn) {
-    copyBookingBtn.addEventListener('click', async () => {
-        const originalText = copyBookingBtn.textContent;
-        try {
-            await navigator.clipboard.writeText(bookingUrl);
-            copyBookingBtn.textContent = 'Link copied';
-        } catch (error) {
-            copyBookingBtn.textContent = 'Copy failed';
-        }
-        setTimeout(() => {
-            copyBookingBtn.textContent = originalText;
-        }, 1400);
     });
 }
 
@@ -315,9 +293,9 @@ window.addEventListener('scroll', () => {
         if (navLink) {
             if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
                 document.querySelectorAll('.nav-menu a').forEach(link => {
-                    link.style.color = '';
+                    link.classList.remove('active-link');
                 });
-                navLink.style.color = '#c9a962';
+                navLink.classList.add('active-link');
             }
         }
     });
