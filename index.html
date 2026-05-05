@@ -46,7 +46,7 @@
         <div class="container">
             <div class="about-content">
                 <div class="about-image animate-slide-left">
-                    <img src="https://images.unsplash.com/photo-1540946485063-a40da27545f8?w=800" alt="Adriatic Sea Yacht">
+                    <img src="/assets/images/jedrilica5.png" alt="Adriatic Sea Yacht">
                     <div class="image-accent"></div>
                 </div>
                 <div class="about-text animate-slide-right">
@@ -64,6 +64,13 @@
     <section id="vessel" class="booking-section">
         <div class="container">
             
+            <!-- Sailing Yacht Divider -->
+            <div class="vessel-divider animate-fade-up">
+                <div class="divider-line"></div>
+                <span class="divider-text"><i class="fas fa-sailboat"></i> Sailing Lučica</span>
+                <div class="divider-line"></div>
+            </div>
+
             <!-- Main Booking Card -->
             <div class="booking-card animate-fade-up">
                 <div class="booking-image">
@@ -109,16 +116,17 @@
                 <h3 class="options-heading">Choose Your Experience</h3>
                 
                 <div class="options-row">
-                    <div class="option-box">
+                    <a href="day-trip.html" class="option-box clickable">
                         <div class="option-icon"><i class="fas fa-sun"></i></div>
                         <h4>Day Trip</h4>
                         <p class="option-duration">6+ hours</p>
                         <p class="option-desc">Explore Brač archipelago in one perfect day.</p>
                         <div class="option-price">$1,256</div>
                         <p class="option-cancel"><i class="fas fa-shield-check"></i> Free cancel 24h before</p>
-                    </div>
+                        <span class="view-details">View Details <i class="fas fa-arrow-right"></i></span>
+                    </a>
                     
-                    <div class="option-box featured">
+                    <a href="two-day-adventure.html" class="option-box featured clickable">
                         <div class="featured-tag">Most Popular</div>
                         <div class="option-icon"><i class="fas fa-moon"></i></div>
                         <h4>2-Day Adventure</h4>
@@ -126,17 +134,104 @@
                         <p class="option-desc">Omiš Riviera & Brač - the ultimate experience.</p>
                         <div class="option-price">$2,512</div>
                         <p class="option-cancel"><i class="fas fa-shield-check"></i> Free cancel 7 days before</p>
-                    </div>
+                        <span class="view-details">View Details <i class="fas fa-arrow-right"></i></span>
+                    </a>
                 </div>
             </div>
             
-            <!-- Guest Review -->
+            <!-- Guest Review - Sailing Yacht -->
             <div class="simple-review animate-fade-up">
                 <div class="review-icon"><i class="fas fa-quote-left"></i></div>
                 <p class="review-quote">"We had such a wonderful day! The boat is incredible and skipper Zdravko was really great! Highly recommend!"</p>
                 <div class="review-author">
                     <span class="author-avatar">F</span>
                     <span class="author-name">Felicia</span>
+                    <span class="author-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></span>
+                </div>
+            </div>
+
+            <!-- Vessel Divider -->
+            <div class="vessel-divider animate-fade-up">
+                <div class="divider-line"></div>
+                <span class="divider-text"><i class="fas fa-ship"></i> Speedboat</span>
+                <div class="divider-line"></div>
+            </div>
+
+            <!-- Speedboat Booking Card -->
+            <div class="booking-card animate-fade-up">
+                <div class="booking-image">
+                    <img src="https://images.unsplash.com/photo-1605281317010-fe5ffe798166?w=800" alt="Speedboat">
+                    <div class="booking-badges">
+                        <span class="b-badge gold"><i class="fas fa-star"></i> 5.0</span>
+                        <span class="b-badge">28 ft</span>
+                        <span class="b-badge">Omiš</span>
+                    </div>
+                </div>
+                
+                <div class="booking-info">
+                    <h2 class="booking-title">Speedboat Charter</h2>
+                    <p class="booking-subtitle">Fast and exciting tours around Omiš and islands</p>
+                    
+                    <div class="booking-features">
+                        <span><i class="fas fa-check-circle"></i> Private tour</span>
+                        <span><i class="fas fa-check-circle"></i> Captain included</span>
+                        <span><i class="fas fa-check-circle"></i> Free cancellation</span>
+                    </div>
+                    
+                    <div class="booking-price-box">
+                        <span class="price-label">From</span>
+                        <span class="price-amount">$450</span>
+                        <span class="price-note">per group</span>
+                    </div>
+                    
+                    <div class="booking-cta">
+                        <a class="cta-btn tripadvisor" href="https://www.tripadvisor.com/Attraction_Review-g644074-d24175564-Reviews-Sailing_yacht_Lucica-Omis_Split_Dalmatia_County_Dalmatia.html" target="_blank">
+                            <i class="fas fa-compass"></i> Book on TripAdvisor
+                        </a>
+                        <a class="cta-btn whatsapp" href="https://wa.me/385996521803?text=Hi! I'm interested in the Speedboat Charter." target="_blank">
+                            <i class="fab fa-whatsapp"></i> Book via WhatsApp
+                        </a>
+                    </div>
+                    
+                    <p class="booking-urgency"><i class="fas fa-bolt"></i> Perfect for island hopping!</p>
+                </div>
+            </div>
+            
+            <!-- Speedboat Tour Options -->
+            <div class="tour-options animate-fade-up">
+                <h3 class="options-heading">Speedboat Experiences</h3>
+                
+                <div class="options-row">
+                    <a href="#" class="option-box clickable">
+                        <div class="option-icon"><i class="fas fa-water"></i></div>
+                        <h4>Blue Cave Tour</h4>
+                        <p class="option-duration">4-5 hours</p>
+                        <p class="option-desc">Visit the famous Blue Cave and nearby islands.</p>
+                        <div class="option-price">$450</div>
+                        <p class="option-cancel"><i class="fas fa-shield-check"></i> Free cancel 24h before</p>
+                        <span class="view-details">View Details <i class="fas fa-arrow-right"></i></span>
+                    </a>
+                    
+                    <a href="#" class="option-box featured clickable">
+                        <div class="featured-tag">Best Value</div>
+                        <div class="option-icon"><i class="fas fa-umbrella-beach"></i></div>
+                        <h4>Island Hopping</h4>
+                        <p class="option-duration">6+ hours</p>
+                        <p class="option-desc">Explore Brač, Hvar & hidden beaches in one day.</p>
+                        <div class="option-price">$650</div>
+                        <p class="option-cancel"><i class="fas fa-shield-check"></i> Free cancel 24h before</p>
+                        <span class="view-details">View Details <i class="fas fa-arrow-right"></i></span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Guest Review - Speedboat -->
+            <div class="simple-review animate-fade-up">
+                <div class="review-icon"><i class="fas fa-quote-left"></i></div>
+                <p class="review-quote">"Amazing speedboat trip! We visited 3 islands in one day. The captain knew all the best spots for swimming!"</p>
+                <div class="review-author">
+                    <span class="author-avatar">J</span>
+                    <span class="author-name">John</span>
                     <span class="author-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></span>
                 </div>
             </div>
