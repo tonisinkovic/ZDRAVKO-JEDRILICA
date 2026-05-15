@@ -22,6 +22,19 @@
     overflow: hidden;
 }
 
+.tour-gallery-trigger {
+    cursor: pointer;
+    border: none;
+    padding: 0;
+    background: none;
+    text-align: inherit;
+}
+
+.tour-gallery-trigger:focus-visible {
+    outline: 3px solid var(--secondary-color);
+    outline-offset: 2px;
+}
+
 .main-image img {
     width: 100%;
     height: 100%;
@@ -79,6 +92,97 @@
 
 .side-image:hover img {
     transform: scale(1.05);
+}
+
+/* Tour photo lightbox */
+.tour-lightbox {
+    position: fixed;
+    inset: 0;
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.94);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.tour-lightbox.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.tour-lightbox-image {
+    max-width: min(92vw, 1200px);
+    max-height: 85vh;
+    border-radius: 12px;
+    object-fit: contain;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
+    user-select: none;
+}
+
+.tour-lightbox-close {
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    width: 48px;
+    height: 48px;
+    border: none;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.12);
+    color: #fff;
+    font-size: 32px;
+    line-height: 1;
+    cursor: pointer;
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.tour-lightbox-close:hover {
+    background: rgba(255, 255, 255, 0.22);
+    transform: rotate(90deg);
+}
+
+.tour-lightbox-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 52px;
+    height: 52px;
+    border: none;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.14);
+    color: #fff;
+    font-size: 20px;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.tour-lightbox-nav:hover {
+    background: rgba(255, 255, 255, 0.28);
+}
+
+.tour-lightbox-prev {
+    left: 20px;
+}
+
+.tour-lightbox-next {
+    right: 20px;
+}
+
+.tour-lightbox-counter {
+    position: absolute;
+    bottom: 28px;
+    left: 50%;
+    transform: translateX(-50%);
+    margin: 0;
+    padding: 8px 18px;
+    border-radius: 999px;
+    background: rgba(0, 0, 0, 0.55);
+    color: #fff;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.3px;
 }
 
 /* Tour Content Layout */
@@ -477,6 +581,33 @@
 .meeting-detail {
     margin-top: 8px;
     font-style: italic;
+}
+
+.meeting-map {
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.meeting-map iframe {
+    display: block;
+    width: 100%;
+    min-height: 208px;
+}
+
+.map-open-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 12px;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--secondary-color);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.map-open-link:hover {
+    color: var(--primary-dark);
 }
 
 /* Reviews */

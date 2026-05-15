@@ -31,16 +31,16 @@
 
     <!-- Tour Hero -->
     <section class="tour-hero">
-        <div class="tour-hero-gallery">
-            <div class="main-image">
+        <div class="tour-hero-gallery" id="tourHeroGallery">
+            <div class="main-image tour-gallery-trigger" data-gallery-index="0" role="button" tabindex="0" aria-label="Open photo gallery">
                 <img src="/assets/images/jedrilica2.png" alt="Sailing through Brač archipelago">
-                <div class="image-count"><i class="fas fa-images"></i> 6 photos</div>
+                <div class="image-count"><i class="fas fa-images"></i> 10 photos</div>
             </div>
             <div class="side-images">
-                <div class="side-image">
+                <div class="side-image tour-gallery-trigger" data-gallery-index="1" role="button" tabindex="0" aria-label="View photo 2">
                     <img src="/assets/images/jedrilica3.png" alt="Crystal clear waters">
                 </div>
-                <div class="side-image">
+                <div class="side-image tour-gallery-trigger" data-gallery-index="2" role="button" tabindex="0" aria-label="View photo 3">
                     <img src="/assets/images/jedrilica5.png" alt="Sailing yacht Lučica">
                 </div>
             </div>
@@ -178,7 +178,7 @@
                                 <div class="itinerary-time">09:00</div>
                                 <div class="itinerary-content">
                                     <h4>Departure from Omiš</h4>
-                                    <p>Meet at Omiš marina and board the sailing yacht Lučica. Safety briefing and welcome aboard.</p>
+                                    <p>Meet at Buoy Omiš (near the bridge) and board sailing yacht Lučica. Safety briefing and welcome aboard.</p>
                                 </div>
                             </div>
                             <div class="itinerary-item">
@@ -300,19 +300,24 @@
                                 <i class="fas fa-map-marker-alt"></i>
                                 <div>
                                     <strong>Meeting Point</strong>
-                                    <p>Omiš Marina, Omiš, Croatia</p>
-                                    <p class="meeting-detail">Look for the sailing yacht "Lučica" - Skipper Zdravko will greet you at the dock.</p>
+                                    <p>Buoy Omiš — departure point for all tours</p>
+                                    <p class="meeting-detail">All tours start at this mooring buoy near the bridge. Look for sailing yacht "Lučica" — Skipper Zdravko will greet you there.</p>
                                 </div>
                             </div>
                             <div class="meeting-map">
-                                <iframe 
-                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2906.6833895437537!2d16.6873!3d43.4447!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x134a93a5e1c1a7a7%3A0x5f7c9d5e5e5e5e5e!2sOmi%C5%A1%2C%20Croatia!5e0!3m2!1sen!2sus!4v1620000000000!5m2!1sen!2sus" 
-                                    width="100%" 
-                                    height="200" 
-                                    style="border:0; border-radius: 12px;" 
-                                    allowfullscreen="" 
-                                    loading="lazy">
+                                <iframe
+                                    title="Buoy Omiš — tour departure point"
+                                    src="https://www.google.com/maps?q=43.444867,16.689364&amp;z=18&amp;hl=hr&amp;output=embed"
+                                    width="100%"
+                                    height="208"
+                                    style="border:0; border-radius: 12px;"
+                                    allowfullscreen=""
+                                    loading="lazy"
+                                    referrerpolicy="no-referrer-when-downgrade">
                                 </iframe>
+                                <a class="map-open-link" href="https://maps.app.goo.gl/Fr6kArFyRHL6UjhB8" target="_blank" rel="noopener noreferrer">
+                                    <i class="fas fa-external-link-alt"></i> Open Buoy Omiš in Google Maps
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -493,7 +498,7 @@
                     <!-- Similar Tours -->
                     <div class="similar-box">
                         <h3>You Might Also Like</h3>
-                        <a href="#" class="similar-tour">
+                        <a href="two-day-adventure.html" class="similar-tour">
                             <div class="similar-image">
                                 <img src="/assets/images/jedrilica4.png" alt="2-Day Adventure">
                             </div>
@@ -565,6 +570,29 @@
             </div>
         </div>
     </footer>
+
+    <script type="application/json" id="tour-gallery-images">
+    [
+        {"src":"/assets/images/jedrilica2.png","alt":"Sailing through Brač archipelago"},
+        {"src":"/assets/images/jedrilica3.png","alt":"Crystal clear Adriatic waters"},
+        {"src":"/assets/images/jedrilica5.png","alt":"Sailing yacht Lučica on the sea"},
+        {"src":"/assets/images/tour-day-1.png","alt":"Yacht cockpit and steering wheel"},
+        {"src":"/assets/images/tour-day-2.png","alt":"Spacious saloon with dining area"},
+        {"src":"/assets/images/tour-day-3.png","alt":"Comfortable cabin interior"},
+        {"src":"/assets/images/tour-day-4.png","alt":"Fully equipped galley kitchen"},
+        {"src":"/assets/images/tour-day-5.png","alt":"Aerial view of yacht on turquoise water"},
+        {"src":"/assets/images/tour-day-6.png","alt":"Yacht layout floor plan"},
+        {"src":"/assets/images/tour-day-7.png","alt":"Sun Odyssey yacht side profile"}
+    ]
+    </script>
+
+    <div class="tour-lightbox" id="tourLightbox" aria-hidden="true">
+        <button type="button" class="tour-lightbox-close" aria-label="Close gallery">&times;</button>
+        <button type="button" class="tour-lightbox-nav tour-lightbox-prev" aria-label="Previous photo"><i class="fas fa-chevron-left"></i></button>
+        <button type="button" class="tour-lightbox-nav tour-lightbox-next" aria-label="Next photo"><i class="fas fa-chevron-right"></i></button>
+        <img src="" alt="" class="tour-lightbox-image">
+        <p class="tour-lightbox-counter" aria-live="polite"></p>
+    </div>
 
     <script src="script.js"></script>
 </body>
