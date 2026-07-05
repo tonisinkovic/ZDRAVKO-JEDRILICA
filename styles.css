@@ -269,10 +269,10 @@ img {
         url('assets/images/hero-home.png') type('image/png')
     );
     background-image: url('assets/images/hero-home.png');
-    background-position: center 50%;
+    background-position: center 45%;
     background-size: cover;
     background-repeat: no-repeat;
-    filter: brightness(1.03) saturate(1.06);
+    filter: brightness(1.05) saturate(1.15);
     backface-visibility: hidden;
 }
 
@@ -294,9 +294,9 @@ img {
     height: 100%;
     background: linear-gradient(
         180deg,
-        rgba(15, 40, 64, 0.05) 0%,
-        rgba(15, 40, 64, 0.18) 50%,
-        rgba(15, 40, 64, 0.55) 100%
+        rgba(15, 40, 64, 0.08) 0%,
+        rgba(15, 40, 64, 0.22) 55%,
+        rgba(15, 40, 64, 0.62) 100%
     );
 }
 
@@ -320,11 +320,13 @@ img {
 
 .hero-subtitle {
     font-size: clamp(16px, 2.5vw, 20px);
-    color: rgba(255, 255, 255, 0.95);
+    color: #ffffff;
     margin-bottom: 40px;
-    font-weight: 300;
+    font-weight: 500;
     line-height: 1.8;
-    text-shadow: 0 2px 16px rgba(0, 0, 0, 0.4);
+    text-shadow:
+        0 1px 3px rgba(0, 0, 0, 0.6),
+        0 2px 20px rgba(0, 0, 0, 0.55);
 }
 
 .hero-buttons {
@@ -1517,7 +1519,7 @@ img {
 
 .options-row {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(3, 1fr);
     gap: 24px;
 }
 
@@ -2418,9 +2420,9 @@ body {
 .hero-overlay {
     background: linear-gradient(
         180deg,
-        rgba(15, 40, 64, 0.05) 0%,
-        rgba(15, 40, 64, 0.15) 50%,
-        rgba(15, 40, 64, 0.5) 100%
+        rgba(15, 40, 64, 0.08) 0%,
+        rgba(15, 40, 64, 0.22) 55%,
+        rgba(15, 40, 64, 0.62) 100%
     );
 }
 

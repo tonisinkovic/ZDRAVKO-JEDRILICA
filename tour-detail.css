@@ -499,6 +499,31 @@
     line-height: 1.5;
 }
 
+.overview-highlights {
+    grid-template-columns: 1fr;
+}
+
+.overview-highlights .highlight-card h4 {
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+}
+
+@media (min-width: 900px) {
+    .overview-highlights {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .overview-highlights .highlight-card:last-child:nth-child(3) {
+        grid-column: 1 / -1;
+        text-align: left;
+    }
+
+    .overview-highlights .highlight-card:last-child:nth-child(3) p {
+        max-width: 900px;
+        margin-inline: auto;
+    }
+}
+
 /* Know Before You Go */
 .know-list {
     display: flex;
