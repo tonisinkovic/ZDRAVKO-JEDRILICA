@@ -3,6 +3,7 @@
 /* Tour Hero Gallery */
 .tour-hero {
     padding-top: 80px;
+    padding-bottom: 32px;
     background: var(--off-white);
 }
 
@@ -225,13 +226,15 @@
 /* Tour Title Block */
 .tour-title-block {
     margin-bottom: 32px;
+    padding-top: 8px;
 }
 
 .tour-title-block h1 {
     font-size: 32px;
-    line-height: 1.3;
+    line-height: 1.4;
     color: var(--primary-color);
     margin-bottom: 16px;
+    overflow: visible;
 }
 
 .tour-meta-row {
@@ -1085,6 +1088,14 @@
 }
 
 @media (max-width: 768px) {
+    .tour-hero {
+        padding-bottom: 24px;
+    }
+
+    .tour-content {
+        padding-top: 32px;
+    }
+
     .tour-hero-gallery {
         grid-template-columns: 1fr;
         height: auto;

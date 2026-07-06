@@ -297,14 +297,7 @@ if (charterForm) {
     });
 }
 
-// ===== Parallax Effect for Hero =====
-window.addEventListener('scroll', () => {
-    const hero = document.querySelector('.hero');
-    if (hero) {
-        const scrolled = window.pageYOffset;
-        hero.style.backgroundPositionY = scrolled * 0.5 + 'px';
-    }
-});
+// Hero parallax removed — img object-fit keeps framing stable on all screen sizes
 
 // ===== Typing Effect for Hero Title =====
 function typeWriter(element, text, speed = 50) {
