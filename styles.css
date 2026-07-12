@@ -1211,6 +1211,33 @@ img {
     margin-top: 4px;
 }
 
+.review-stars i {
+    display: inline-block;
+    transform-origin: center;
+    animation: reviewStarPop 2.4s ease-in-out infinite;
+}
+
+.review-stars i:nth-child(1) { animation-delay: 0s; }
+.review-stars i:nth-child(2) { animation-delay: 0.2s; }
+.review-stars i:nth-child(3) { animation-delay: 0.4s; }
+.review-stars i:nth-child(4) { animation-delay: 0.6s; }
+.review-stars i:nth-child(5) { animation-delay: 0.8s; }
+
+@keyframes reviewStarPop {
+    0%, 18%, 100% {
+        transform: scale(1);
+    }
+    9% {
+        transform: scale(1.45);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .review-stars i {
+        animation: none;
+    }
+}
+
 .review-title {
     font-weight: 900;
     color: var(--primary-dark);
